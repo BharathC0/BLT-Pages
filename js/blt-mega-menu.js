@@ -16,12 +16,8 @@
   var BLT_LOGO       = "https://github.com/OWASP-BLT/BLT/raw/main/website/static/img/logos/logo.png";
   var MENU_BAR_ID    = "blt-mega-menu-bar";
 
-  // Don't inject twice
+ 
   if (document.getElementById(MENU_BAR_ID)) return;
-
-  /* ------------------------------------------------------------------
-   * Menu structure — covers all OWASP-BLT repos + platform sections
-   * ------------------------------------------------------------------ */
   var SECTIONS = [
     {
       label: "Platform",
@@ -69,10 +65,6 @@
       ],
     },
   ];
-
-  /* ------------------------------------------------------------------
-   * CSS
-   * ------------------------------------------------------------------ */
   var CSS = [
     "#" + MENU_BAR_ID + "{all:initial;display:block;width:100%;background:#fff;border-bottom:2px solid #ef4444;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;position:relative;z-index:2147483647;box-sizing:border-box;}",
     "#blt-mn-inner{display:flex;align-items:center;padding:0 16px;height:52px;gap:4px;max-width:100%;}",
@@ -105,9 +97,6 @@
     "@media(max-width:768px){.blt-mn-item{display:none!important}#blt-mn-cta{display:none!important}#blt-mn-ham{display:block!important}}",
   ].join("");
 
-  /* ------------------------------------------------------------------
-   * Build HTML
-   * ------------------------------------------------------------------ */
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
@@ -197,7 +186,6 @@
       });
     });
 
-    // Mobile hamburger
     var ham = bar.querySelector("#blt-mn-ham");
     var mob = bar.querySelector("#blt-mn-mob");
     ham.addEventListener("click", function (e) {
