@@ -142,24 +142,17 @@
       + '<div id="blt-mn-mob">' + buildMobile() + "</div>"
     + "</div>";
   }
-
-  /* ------------------------------------------------------------------
-   * Init
-   * ------------------------------------------------------------------ */
   function init() {
-    // Inject styles
     var style = document.createElement("style");
     style.id = "blt-mega-menu-styles";
     style.textContent = CSS;
     document.head.appendChild(style);
 
-    // Inject bar
     var tmp = document.createElement("div");
     tmp.innerHTML = buildBar();
     var bar = tmp.firstChild;
     document.body.insertBefore(bar, document.body.firstChild);
 
-    // Desktop dropdowns
     var items = bar.querySelectorAll(".blt-mn-item");
     items.forEach(function (item) {
       var btn  = item.querySelector(".blt-mn-btn");
@@ -167,7 +160,7 @@
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
         var opening = !drop.classList.contains("open");
-        // close all
+     
         items.forEach(function (i) {
           i.querySelector(".blt-mn-btn").classList.remove("open");
           i.querySelector(".blt-mn-drop").classList.remove("open");
